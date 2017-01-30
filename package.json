@@ -1,5 +1,5 @@
 {
-  "name": "lorem-transformer",
+  "name": "@emmetio/lorem",
   "version": "1.0.0",
   "description": "Transforms parsed Emmet abbreviation node into Lorem Ipsum stub text",
   "main": "dist/lorem.cjs.js",
@@ -8,13 +8,17 @@
     "@emmetio/implicit-tag": "^1.0.0"
   },
   "devDependencies": {
+    "@emmetio/abbreviation": "^0.5.0",
+    "@emmetio/html-snippets-resolver": "^0.1.1",
+    "@emmetio/html-transform": "^0.3.0",
+    "@emmetio/snippets-registry": "^0.3.0",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.22.0",
     "babel-register": "^6.22.0",
     "mocha": "^3.2.0",
     "rollup": "^0.41.4"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha",
     "build": "rollup -c",
     "prepublish": "npm run test && npm run build"
   },

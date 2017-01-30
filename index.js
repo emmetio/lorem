@@ -32,9 +32,7 @@ export default function(node, options) {
 		// Replace named node with generated content
 		const startWithCommon = !options.skipCommon && (!node.repeat || node.repeat.value === 1);
 		node.value = paragraph(dict, options.wordCount, startWithCommon);
-		if (node.name == null) {
-			node.name = resolveImplicitTag(node.parent.name);
-		}
+		node.name = resolveImplicitTag(node.parent.name);
 	}
 
 	return node;
