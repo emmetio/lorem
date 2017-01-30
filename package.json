@@ -1,0 +1,32 @@
+{
+  "name": "lorem-transformer",
+  "version": "1.0.0",
+  "description": "Transforms parsed Emmet abbreviation node into Lorem Ipsum stub text",
+  "main": "dist/lorem.cjs.js",
+  "module": "dist/lorem.es.js",
+  "dependencies": {
+    "@emmetio/implicit-tag": "^1.0.0"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.22.0",
+    "babel-register": "^6.22.0",
+    "mocha": "^3.2.0",
+    "rollup": "^0.41.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup -c",
+    "prepublish": "npm run test && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emmetio/lorem-transformer.git"
+  },
+  "keywords": [],
+  "author": "Sergey Chikuyonok <serge.che@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/emmetio/lorem-transformer/issues"
+  },
+  "homepage": "https://github.com/emmetio/lorem-transformer#readme"
+}
