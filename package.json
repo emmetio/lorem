@@ -24,13 +24,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/emmetio/lorem-transformer.git"
+    "url": "git+https://github.com/emmetio/lorem.git"
   },
   "keywords": [],
   "author": "Sergey Chikuyonok <serge.che@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/emmetio/lorem-transformer/issues"
+    "url": "https://github.com/emmetio/emmet/issues"
   },
-  "homepage": "https://github.com/emmetio/lorem-transformer#readme"
+  "homepage": "https://github.com/emmetio/lorem#readme"
 }
