@@ -22,15 +22,15 @@ const defaultOptions = {
 export default function(node, options) {
 	options = Object.assign({}, defaultOptions, options);
 	const dict = langs[options.lang] || langs.latin;
+    const startWithCommon = !options.skipCommon && !isRepeating(node);
 
 	if (!node.repeat && !isRoot(node.parent)) {
 		// non-repeating element, insert text stub as a content of parent node
 		// and remove current one
-		node.parent.value = paragraph(dict, options.wordCount, !options.skipCommon);
+		node.parent.value = paragraph(dict, options.wordCount, startWithCommon);
 		node.remove();
 	} else {
 		// Replace named node with generated content
-		const startWithCommon = !options.skipCommon && (!node.repeat || node.repeat.value === 1);
 		node.value = paragraph(dict, options.wordCount, startWithCommon);
 		node.name = resolveImplicitTag(node.parent.name);
 	}
@@ -144,4 +144,22 @@ function paragraph(dict, wordCount, startWithCommon) {
 	}
 
 	return result.join(' ');
+}
+
+/**
+ * Check if given node is in repeating context, e.g. node itself or one of its
+ * parent is repeated
+ * @param  {Node}  node
+ * @return {Boolean}
+ */
+function isRepeating(node) {
+    while (node.parent) {
+        if (node.repeat && node.repeat.value && node.repeat.value > 1) {
+            return true;
+        }
+
+        node = node.parent;
+    }
+
+    return false;
 }

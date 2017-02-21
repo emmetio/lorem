@@ -77,6 +77,26 @@ describe('Lorem Ipsum matcher', () => {
         assert(node.value.split(' ').length > 20);
     });
 
+    it('repeat parent', () => {
+        const tree = parse('p*3>lorem');
+        assert.equal(tree.children.length, 3);
+
+        let node = tree.firstChild;
+        assert.equal(node.name, 'p');
+        assert(commonLorem.test(node.value));
+        assert(node.value.split(' ').length > 20);
+
+        node = tree.children[1];
+        assert.equal(node.name, 'p');
+        assert(!commonLorem.test(node.value));
+        assert(node.value.split(' ').length > 20);
+
+        node = tree.children[2];
+        assert.equal(node.name, 'p');
+        assert(!commonLorem.test(node.value));
+        assert(node.value.split(' ').length > 20);
+    });
+
     it('langs', () => {
         const tree = parse('ul>loremru10*3').firstChild;
         assert.equal(tree.children.length, 3);
