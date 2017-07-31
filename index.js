@@ -32,7 +32,7 @@ export default function(node, options) {
 	} else {
 		// Replace named node with generated content
 		node.value = paragraph(dict, options.wordCount, startWithCommon);
-		node.name = resolveImplicitTag(node.parent.name);
+		node.name = node.parent.name ? resolveImplicitTag(node.parent.name) : null;
 	}
 
 	return node;

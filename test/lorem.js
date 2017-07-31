@@ -43,12 +43,12 @@ describe('Lorem Ipsum matcher', () => {
         assert.equal(tree.children.length, 1);
 
         let node = tree.firstChild;
-        assert.equal(node.name, 'div');
+        assert.equal(node.name, null);
         assert(commonLorem.test(node.value));
         assert(node.value.split(' ').length > 20);
 
         node = parse('lorem5').firstChild;
-        assert.equal(node.name, 'div');
+        assert.equal(node.name, null);
         assert(commonLorem.test(node.value));
         assert.equal(node.value.split(' ').length, 5);
     });
