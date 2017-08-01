@@ -1,6 +1,6 @@
 {
   "name": "@emmetio/lorem",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Transforms parsed Emmet abbreviation node into Lorem Ipsum stub text",
   "main": "dist/lorem.cjs.js",
   "module": "dist/lorem.es.js",
