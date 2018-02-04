@@ -10,7 +10,7 @@ const stringify = require('./assets/stringify').default;
 const lorem = require('../index').default;
 
 const registry = new SnippetsRegistry();
-const reLorem = /^lorem([a-z]*)(\d*)$/;
+const reLorem = /^lorem([a-z]*)(\d*)$/i;
 const store = registry.add(new Map().set(reLorem, node => {
     const options = {};
     const m = node.name.match(reLorem);
@@ -51,6 +51,11 @@ describe('Lorem Ipsum matcher', () => {
         assert.equal(node.name, null);
         assert(commonLorem.test(node.value));
         assert.equal(node.value.split(' ').length, 5);
+    });
+
+    it('case-insensitive', () => {
+        assert(commonLorem.test(parse('Lorem').firstChild.value));
+        assert(commonLorem.test(parse('LoRem20').firstChild.value));
     });
 
     it('set parent value', () => {
